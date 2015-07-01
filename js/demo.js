@@ -17,6 +17,7 @@ var app = angular.module('MobileAngularUiExamples', [
   'mobile-angular-ui.gestures'
 ]);
 
+var basePath = "https://raw.githack.com/lernrr777/hello-world/master/";
 
 //
 // You can configure ngRoute as always, but to take advantage of SharedState location
@@ -24,19 +25,19 @@ var app = angular.module('MobileAngularUiExamples', [
 // in order to avoid unwanted routing.
 //
 app.config(function($routeProvider) {
-  $routeProvider.when('/',              {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/home.html', reloadOnSearch: false});
-  $routeProvider.when('/scroll',        {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/scroll.html', reloadOnSearch: false});
-  $routeProvider.when('/toggle',        {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/toggle.html', reloadOnSearch: false});
-  $routeProvider.when('/tabs',          {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/tabs.html', reloadOnSearch: false});
-  $routeProvider.when('/accordion',     {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/accordion.html', reloadOnSearch: false});
-  $routeProvider.when('/overlay',       {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/overlay.html', reloadOnSearch: false});
-  $routeProvider.when('/forms',         {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/forms.html', reloadOnSearch: false});
-  $routeProvider.when('/dropdown',      {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/dropdown.html', reloadOnSearch: false});
-  $routeProvider.when('/touch',         {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/touch.html', reloadOnSearch: false});
-  $routeProvider.when('/swipe',         {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/swipe.html', reloadOnSearch: false});
-  $routeProvider.when('/drag',          {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/drag.html', reloadOnSearch: false});
-  $routeProvider.when('/drag2',         {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/drag2.html', reloadOnSearch: false});
-  $routeProvider.when('/carousel',      {templateUrl: 'file:///C:/Users/k.a.srinivasarao/Downloads/mobile-angular-ui-master/mobile-angular-ui-master/demo/carousel.html', reloadOnSearch: false});
+  $routeProvider.when('/',              {templateUrl: basepath+'html/home.html', reloadOnSearch: false});
+  $routeProvider.when('/scroll',        {templateUrl: basepath+'html/scroll.html', reloadOnSearch: false});
+  $routeProvider.when('/toggle',        {templateUrl: basepath+'html/toggle.html', reloadOnSearch: false});
+  $routeProvider.when('/tabs',          {templateUrl: basepath+'html/tabs.html', reloadOnSearch: false});
+  $routeProvider.when('/accordion',     {templateUrl: basepath+'html/accordion.html', reloadOnSearch: false});
+  $routeProvider.when('/overlay',       {templateUrl: basepath+'html/overlay.html', reloadOnSearch: false});
+  $routeProvider.when('/forms',         {templateUrl: basepath+'html/forms.html', reloadOnSearch: false});
+  $routeProvider.when('/dropdown',      {templateUrl: basepath+'html/dropdown.html', reloadOnSearch: false});
+  $routeProvider.when('/touch',         {templateUrl: basepath+'html/touch.html', reloadOnSearch: false});
+  $routeProvider.when('/swipe',         {templateUrl: basepath+'html/swipe.html', reloadOnSearch: false});
+  $routeProvider.when('/drag',          {templateUrl: basepath+'html/drag.html', reloadOnSearch: false});
+  $routeProvider.when('/drag2',         {templateUrl: basepath+'html/drag2.html', reloadOnSearch: false});
+  $routeProvider.when('/carousel',      {templateUrl: basepath+'html/carousel.html', reloadOnSearch: false});
   $routeProvider.otherwise({
                     redirectTo: '/'
                 })
