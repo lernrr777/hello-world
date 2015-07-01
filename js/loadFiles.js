@@ -16,10 +16,13 @@ function loadjscssfile(filename, filetype){
  
 /* Start Loading CSS in this block */
 
-loadjscssfile("testcss.css", "css"); ////dynamically load and add this .css file
+//loadjscssfile("testcss.css", "css"); ////dynamically load and add this .css file
 
 /* End Loading CSS in this block */
 
 /* Start Loading JS in this block */
-document.write('<script type="text/javascript" src="testjs.js" ></script>');
+//document.write('<script type="text/javascript" src="testjs.js" ></script>');
 /* End Loading JS in this block */
+
+alert("test insertions");
+document.body.innerHTML += '<h1>Hello World</h1>';
