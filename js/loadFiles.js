@@ -13,6 +13,47 @@ document.getElementsByTagName('head')[0].innerHTML += ' <meta name="apple-mobile
 
 
 
+function loadjscssfile(filename, filetype){
+    if (filetype=="js"){ //if filename is a external JavaScript file
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src", filename)
+    }
+    else if (filetype=="css"){ //if filename is an external CSS file
+        var fileref=document.createElement("link")
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", filename)
+    }
+    if (typeof fileref!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+}
+ 
+/* Start Loading CSS in this block */
+
+loadjscssfile(basePath + "css/mobile-angular-ui-hover.min.css", "css");
+loadjscssfile(basePath + "css/mobile-angular-ui-base.css", "css");
+loadjscssfile(basePath + "css/mobile-angular-ui-desktop.min.css", "css");
+loadjscssfile(basePath + "css/demo.css", "css");
+
+/* End Loading CSS in this block */
+
+
+/* Start Loading JS in this block */
+
+document.write('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>');
+  document.write('<script type="text/javascript" src="'+basePath+'js/angular.min.js" ></script>');
+  document.write('<script type="text/javascript" src="'+basePath+'js/angular-route.min.js" ></script>');
+  document.write('<script type="text/javascript" src="'+basePath+'js/mobile-angular-ui.min.js" ></script>');
+  document.write('<script type="text/javascript" src="'+basePath+'js/angular-animate.min.js" ></script>');
+  document.write('<script type="text/javascript" src="'+basePath+'js/mobile-angular-ui.gestures.min.js" ></script>');
+  document.write('<script type="text/javascript" src="'+basePath+'js/demo.js" ></script>');
+  
+/* End Loading JS in this block */
+
+
+
+
 var htmlCode="";
 htmlCode += "<div ng-app=\"MobileAngularUiExamples\" ng-controller=\"MainController\" ui-prevent-touchmove-defaults>";
 htmlCode += "    ";
@@ -62,42 +103,3 @@ htmlCode += "<\/div>";
 
 
 $("body").append(htmlCode);
-
-function loadjscssfile(filename, filetype){
-    if (filetype=="js"){ //if filename is a external JavaScript file
-        var fileref=document.createElement('script')
-        fileref.setAttribute("type","text/javascript")
-        fileref.setAttribute("src", filename)
-    }
-    else if (filetype=="css"){ //if filename is an external CSS file
-        var fileref=document.createElement("link")
-        fileref.setAttribute("rel", "stylesheet")
-        fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", filename)
-    }
-    if (typeof fileref!="undefined")
-        document.getElementsByTagName("head")[0].appendChild(fileref)
-}
- 
-/* Start Loading CSS in this block */
-
-loadjscssfile(basePath + "css/mobile-angular-ui-hover.min.css", "css");
-loadjscssfile(basePath + "css/mobile-angular-ui-base.css", "css");
-loadjscssfile(basePath + "css/mobile-angular-ui-desktop.min.css", "css");
-loadjscssfile(basePath + "css/demo.css", "css");
-
-/* End Loading CSS in this block */
-
-
-/* Start Loading JS in this block */
-
-document.write('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>');
-  document.write('<script type="text/javascript" src="'+basePath+'js/angular.min.js" ></script>');
-  document.write('<script type="text/javascript" src="'+basePath+'js/angular-route.min.js" ></script>');
-  document.write('<script type="text/javascript" src="'+basePath+'js/mobile-angular-ui.min.js" ></script>');
-  document.write('<script type="text/javascript" src="'+basePath+'js/angular-animate.min.js" ></script>');
-  document.write('<script type="text/javascript" src="'+basePath+'js/mobile-angular-ui.gestures.min.js" ></script>');
-  document.write('<script type="text/javascript" src="'+basePath+'js/demo.js" ></script>');
-  
-/* End Loading JS in this block */
-
