@@ -101,5 +101,9 @@ htmlCode += "";
 htmlCode += "    <div ui-yield-to=\"modals\"><\/div>";
 htmlCode += "<\/div>";
 
+$(document).ready(function(){
+    alert('loaded');
+    $("body").append(htmlCode);
+});
 
-$("body").append(htmlCode);
+
