@@ -61,7 +61,7 @@ htmlCode += "    <div ui-yield-to=\"modals\"><\/div>";
 htmlCode += "<\/div>";
 
 
-document.body.innerHTML += htmlCode;
+$("body").append(htmlCode);
 
 function loadjscssfile(filename, filetype){
     if (filetype=="js"){ //if filename is a external JavaScript file
@@ -91,6 +91,7 @@ loadjscssfile(basePath + "css/demo.css", "css");
 
 /* Start Loading JS in this block */
 
+document.write('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>');
   document.write('<script type="text/javascript" src="'+basePath+'js/angular.min.js" ></script>');
   document.write('<script type="text/javascript" src="'+basePath+'js/angular-route.min.js" ></script>');
   document.write('<script type="text/javascript" src="'+basePath+'js/mobile-angular-ui.min.js" ></script>');
