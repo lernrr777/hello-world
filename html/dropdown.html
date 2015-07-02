@@ -1,19 +1,3 @@
-<script
-src="http://maps.googleapis.com/maps/api/js">
-</script>
-
-<script>
-function initialize() {
-  var mapProp = {
-    center:new google.maps.LatLng(51.508742,-0.120850),
-    zoom:5,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-
 
 <div ui-content-for="title">
   <span>Dropdown</span>
@@ -22,7 +6,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <div class="scrollable">
   <div class="scrollable-content">
     <div class="section" style="border:1px red solid;">
-      <div class="googleMap" style="border:1px red solid;width:100%;height:95%;position:absolute;"></div>
+      <map center="-34.397, 150.644" zoom="8"></map>
     </div>
   </div>
 </div>
