@@ -5,6 +5,7 @@
 var app = angular.module('MobileAngularUiExamples', [
   'ngRoute',
   'ngAnimate',
+  'ngSanitize',
   'mobile-angular-ui',
   
   
@@ -17,15 +18,16 @@ var app = angular.module('MobileAngularUiExamples', [
   'mobile-angular-ui.gestures'
 ]);
 
-var basePath = "https://raw.githack.com/lernrr777/hello-world/master/";
+var basepath = "https://raw.githack.com/lernrr777/hello-world/master/";
 
 //
 // You can configure ngRoute as always, but to take advantage of SharedState location
 // feature (i.e. close sidebar on backbutton) you should setup 'reloadOnSearch: false'
 // in order to avoid unwanted routing.
 //
-app.config(function($routeProvider) {
-  $routeProvider.when('/',              {templateUrl: basepath+'html/home.html', reloadOnSearch: false});
+app.config(function($routeProvider,$sceProvider) {
+  $sceProvider.enabled(false);
+  $routeProvider.when('/',              {templateUrl:  basepath+'html/home.html', reloadOnSearch: false});
   $routeProvider.when('/scroll',        {templateUrl: basepath+'html/scroll.html', reloadOnSearch: false});
   $routeProvider.when('/toggle',        {templateUrl: basepath+'html/toggle.html', reloadOnSearch: false});
   $routeProvider.when('/tabs',          {templateUrl: basepath+'html/tabs.html', reloadOnSearch: false});
