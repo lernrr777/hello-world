@@ -31,7 +31,7 @@ app.config(function($routeProvider,$sceProvider) {
   $routeProvider.when('/scroll',        {templateUrl: basepath+'html/scroll.html', reloadOnSearch: false});
   $routeProvider.when('/toggle',        {templateUrl: basepath+'html/toggle.html', reloadOnSearch: false});
   $routeProvider.when('/tabs',          {templateUrl: basepath+'html/tabs.html', reloadOnSearch: false});
-  $routeProvider.when('/accordion',     {templateUrl: basepath+'html/accordion.html', reloadOnSearch: false});
+  $routeProvider.when('/accordion',     {templateUrl: basepath+'html/accordian.html', reloadOnSearch: false});
   $routeProvider.when('/overlay',       {templateUrl: basepath+'html/overlay.html', reloadOnSearch: false});
   $routeProvider.when('/forms',         {templateUrl: basepath+'html/forms.html', reloadOnSearch: false});
   $routeProvider.when('/dropdown',      {templateUrl: basepath+'html/dropdown.html', reloadOnSearch: false});
