@@ -1,7 +1,7 @@
 <style>
 /* Styles go here */
 
-#map {
+.map {
     height:100%;
     width:100%;
     position:absolute;
@@ -19,9 +19,8 @@ h2 {
 
 <div class="scrollable">
  <div class="scrollable-content section">
-<div ng-controller="MapCtrl">
-    <div id="map"></div>
-   
+   <div ng-controller="mapController">
+<div id="map_canvas" ui-map="model.myMap" class="map" ui-options="mapOptions"></div>
 </div>
 </div>
 </div>
