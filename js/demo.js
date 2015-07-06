@@ -423,7 +423,7 @@ app.controller("mapController", function ($scope) {
 
         $scope.getLocation = function () {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition($scope.showPosition, $scope.showError);
+                navigator.geolocation.watchPosition($scope.showPosition, $scope.showError);
             }
             else {
                 $scope.error = "Geolocation is not supported by this browser.";
