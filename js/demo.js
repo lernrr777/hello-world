@@ -395,6 +395,8 @@ app.controller("mapController", function ($scope) {
         $scope.showPosition = function (position) {
             $scope.lat = position.coords.latitude;
             $scope.lng = position.coords.longitude;
+            
+            alert($scope.lat + "--"+$scope.lng);
             $scope.accuracy = position.coords.accuracy;
             $scope.$apply();
 
