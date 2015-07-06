@@ -4,11 +4,13 @@
 //
 
 document.write('<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>');
+document.write('<script type="text/javascript" src="https://raw.githack.com/angular-ui/ui-event/master/src/event.js"></script>');
+document.write('<script type="text/javascript" src="https://raw.githack.com/angular-ui/ui-map/master/src/ui-map.js"></script>');
 //document.write('<script src="https://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.js"></script>');
 var app = angular.module('MobileAngularUiExamples', [
   'ngRoute',
   'ngAnimate',
-  'ngSanitize',
+  'ngSanitize',"ui.map", "ui.event",
   'mobile-angular-ui',
   
   
@@ -372,80 +374,63 @@ app.controller('MainController', function($rootScope, $scope,$location){
 
 
 
-//Data
-var cities = [
-    {
-        city : 'Toronto',
-        desc : 'This is the best city in the world!',
-        lat : 43.7000,
-        long : -79.4000
-    },
-    {
-        city : 'New York',
-        desc : 'This city is aiiiiite!',
-        lat : 40.6700,
-        long : -73.9400
-    },
-    {
-        city : 'Chicago',
-        desc : 'This is the second best city in the world!',
-        lat : 41.8819,
-        long : -87.6278
-    },
-    {
-        city : 'Los Angeles',
-        desc : 'This city is live!',
-        lat : 34.0500,
-        long : -118.2500
-    },
-    {
-        city : 'Las Vegas',
-        desc : 'Sin City...\'nuff said!',
-        lat : 36.0800,
-        long : -115.1522
-    }
-];
+app.controller("mapController", function ($scope) {
+        $scope.lat = "0";
+        $scope.lng = "0";
+        $scope.accuracy = "0";
+        $scope.error = "";
+        $scope.model = { myMap: undefined };
+        $scope.myMarkers = [];
 
-//Angular App Module and Controller
-app.controller('MapCtrl', function ($scope) {
+        $scope.showResult = function () {
+            return $scope.error == "";
+        }
 
-    var mapOptions = {
-        zoom: 4,
-        center: new google.maps.LatLng(40.0000, -98.0000),
-        mapTypeId: google.maps.MapTypeId.TERRAIN
-    }
+        $scope.mapOptions = {
+            center: new google.maps.LatLng($scope.lat, $scope.lng),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
 
-    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        $scope.showPosition = function (position) {
+            $scope.lat = position.coords.latitude;
+            $scope.lng = position.coords.longitude;
+            $scope.accuracy = position.coords.accuracy;
+            $scope.$apply();
 
-    $scope.markers = [];
-    
-    var infoWindow = new google.maps.InfoWindow();
-    
-    var createMarker = function (info){
-        
-        var marker = new google.maps.Marker({
-            map: $scope.map,
-            position: new google.maps.LatLng(info.lat, info.long),
-            title: info.city
-        });
-        marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
-        
-        google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-            infoWindow.open($scope.map, marker);
-        });
-        
-        $scope.markers.push(marker);
-        
-    }  
-    
-    for (i = 0; i < cities.length; i++){
-        createMarker(cities[i]);
-    }
+            var latlng = new google.maps.LatLng($scope.lat, $scope.lng);
+            $scope.model.myMap.setCenter(latlng);
+            $scope.myMarkers.push(new google.maps.Marker({ map: $scope.model.myMap, position: latlng }));
+        }
 
-    $scope.openInfoWindow = function(e, selectedMarker){
-        e.preventDefault();
-        google.maps.event.trigger(selectedMarker, 'click');
-    }
+        $scope.showError = function (error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    $scope.error = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    $scope.error = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    $scope.error = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    $scope.error = "An unknown error occurred."
+                    break;
+            }
+            $scope.$apply();
+        }
+
+        $scope.getLocation = function () {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition($scope.showPosition, $scope.showError);
+            }
+            else {
+                $scope.error = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        $scope.getLocation();
+
 
 });
