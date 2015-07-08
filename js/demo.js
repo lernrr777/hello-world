@@ -264,7 +264,7 @@ app.directive('dragMe', ['$drag', function($drag){
 // for everything
 //
 app.controller('MainController', function($rootScope, $scope,$location){
-
+$('.app-content').css('overflow',"scroll");
   $scope.swiped = function(direction) {
     alert('Swiped ' + direction);
   };
