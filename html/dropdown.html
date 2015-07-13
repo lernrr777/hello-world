@@ -1,57 +1,22 @@
 
 <div ui-content-for="title">
-  <span>Dropdown</span>
+  <span>Custom Scroll</span>
 </div>
 
-<div class="scrollable" ng-app="ngMap">
-  <div class="scrollable-content">
-   <div id="wrapper1" style="width:320px;height:480px;overflow:hidden;">
-    <div id="scroller1">
-        <ul>
-            <li>List item1</li>
-            <li>List item2</li>
-            <li>List item3</li>
-            <li>List item4</li>
-            <li>List item5</li>
-            <li>List item6</li>
-            <li>List item7</li>
-     <li>List item8</li>
-            <li>List item9</li>
-            <li>List item8</li>
-            <li>List item7</li>
-            <li>List item6</li>
-            <li>List item5</li>
-            <li>List item4</li>
-            <li>List item3</li>
-   <li>List item2</li>
-            <li>List item2</li>
-            <li>List item1</li>
-            <li>List item0</li>
-            <li>List item1</li>
-            <li>List item2</li>
-            <li>List item3</li>
-   
-            <li>List item4</li>
-            <li>List item5</li>
-            <li>List item6</li>
-            <li>List item7</li>
-            <li>List item8</li>
-            <li>List item9</li>
-     <li>List item</li>
-            <li>List item</li>
-            <li>List item</li>
-            <li>List item</li>
-            <li>List item</li>
-            <li>List item</li>
-            <li>List item</li>
-
-        </ul>
+<div class="scrollable" >
+ 
+  <div class="scrollable-content" >
+    <div class="list-group" id="scrollWrapper">
+      <a ng-repeat="item in scrollItems" href="#" class="list-group-item">
+        {{ item }} <i class="fa fa-chevron-right pull-right"></i>
+      </a>
     </div>
-</div>
   </div>
+
+  
 </div>
 <script>
-alert('iscroll');
-    var myScroll1 = new iScroll('wrapper1',{scrollbars:false});
+alert('iscroll latest');
+    var myScroll1 = new iScroll('scrollWrapper',{scrollbars:false});
     
 </script>
