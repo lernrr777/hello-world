@@ -9,12 +9,7 @@ document.write('<script type="text/javascript" src="https://raw.githack.com/angu
 document.write('<script type="text/javascript" src="https://raw.githack.com/angular-ui/ui-map/master/src/ui-map.js"></script>');
 //document.write('<script src="https://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.js"></script>');
 
-document.addEventListener("backbutton", onBackKeyDown, false);
 
-function onBackKeyDown() {
-    // Handle the back button
-    alert('backbutton clicked');
-}
 
 var app = angular.module('MobileAngularUiExamples', [
   'ngRoute',
