@@ -2,12 +2,20 @@
 // Here is how to define your module
 // has dependent on mobile-angular-ui
 //
-
+document.write('<script src="https://raw.githack.com/lernrr777/hello-world/master/cordova.js"></script>');
 document.write('<script src="http://cubiq.org/dropbox/iscroll4/src/iscroll.js"></script>');
 document.write('<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>');
 document.write('<script type="text/javascript" src="https://raw.githack.com/angular-ui/ui-event/master/src/event.js"></script>');
 document.write('<script type="text/javascript" src="https://raw.githack.com/angular-ui/ui-map/master/src/ui-map.js"></script>');
 //document.write('<script src="https://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.js"></script>');
+
+document.addEventListener("backbutton", onBackKeyDown, false);
+
+function onBackKeyDown() {
+    // Handle the back button
+    alert('backbutton clicked');
+}
+
 var app = angular.module('MobileAngularUiExamples', [
   'ngRoute',
   'ngAnimate',
